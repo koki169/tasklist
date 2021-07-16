@@ -1,3 +1,16 @@
-<p id="notice"><%= notice %></p>
+<h3>ユーザー情報</h3>
 
-<%= link_to 'Back', users_path %>
+<table class="table table-bordered">
+	<tr>
+		<th width="140px">ユーザー名</th>
+		<td><%= @user.name %></td>
+	</tr>
+	<tr>
+		<th>メールアドレス</th>
+		<td><%= @user.email %></td>
+	</tr>
+</table>
+
+<%= link_to 'タスクに戻る', tasks_path, class: 'btn btn-light' %>
+<%= link_to '編集する', edit_user_path(@user), class: 'btn btn-primary'  %>
+<%= link_to '退会する', @current_user, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>
